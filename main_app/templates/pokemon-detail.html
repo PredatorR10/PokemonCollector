@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div>
+  <img src="{{pokemon.img}}" alt="{{pokemon.name}}" />
+</div>
+    <h1>{{pokemon.name}}</h1>
+</div>
+<div>
+    <h3>Level: {{pokemon.level}}</h3>
+    <h3>Gender: {{pokemon.gender}}</h3>
+    <p>Caught By:
+        <a href="/user/{{pokemon.user.username}}">{{pokemon.user.username}}</a>
+    </p>
+    {% for pokemonfood in pokemon.pokemonfood.all %}
+    <div>{{pokemonfood.name}}</div>
+    {% empty %}
+    <div>Pokemon Has No Food :(</div>
+    {% endfor %}
+</div>
+<div>
+    <a href="{% url 'pokemon-update' pokemon.pk %}">Edit</a>
+    <a href="{% url 'pokemon-delete' pokemon.pk %}">Delete</a>
+</div>
+
+{% endblock %}

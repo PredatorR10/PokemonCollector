@@ -1,0 +1,16 @@
+<!-- templates/cattoy_show.html -->
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Pokemon Food Details</h1>
+
+<div>
+    <div>
+        <span>{{ pokemonfood.name }}</span>
+    </div>
+    <div>
+        <a href="{% url 'pokemonfood-update' pokemonfood.id %}">Edit</a>
+        <a href="{% url 'pokemonfood-delete' pokemonfood.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}
